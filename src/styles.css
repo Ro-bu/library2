@@ -1,0 +1,324 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* RESET END */
+
+html{
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    min-height: 100vh; 
+}
+.main-wrapper{
+    display: grid;
+    grid-template-rows:15vh 1fr;
+}
+.header{
+    background-color: #ffffff;
+    box-shadow: 0px 0px 3px 2px #cfcfcf;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 30px 50px 30px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.header h1{
+    font-size: 3em;
+    font-weight: 900;
+}
+.header button{
+    border:none;
+    font-size: 1.3em;
+    padding: 15px 30px 15px 30px;
+    border-radius: 15px;
+    font-weight: 700;
+    background-color: #fca311;
+}
+.header button:hover{
+    background-color: #ed9607;
+}
+.main-content{
+    background-color: #e5e5e5;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row:2/3;
+    grid-column: 1/2;
+}
+.add-book{
+    margin: 2em 0 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    cursor: default;
+}
+.add-book:hover{
+    background-color: #cfcfcf;
+}
+.add-book span{
+    font-size: 1.5em;
+    margin-left: 5px;
+}
+.book-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    /* grid-template-rows: repeat(auto-fit, 350px); */
+    gap: 40px;
+    padding: 0 3em 3em 3em; 
+    width: 100%;
+    box-sizing: border-box;
+}
+.book-card{
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 350px;
+    box-sizing: border-box;
+    background-color:#ffffff;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 20px 30px 20px;
+    border-radius: 10px;
+    border-top: 8px solid #fca311;
+    box-shadow: 2px 2px 3px 0px #cfcfcf;
+    font-size: 1.4em;
+}
+.book-button-cont{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.book-button-cont button{
+    border: none;
+    font-size:1em;
+    padding: 10px 0 10px 0;
+    border-radius: 5px;
+}
+.read-button-cont{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.read-button-cont button{
+    width: 50%;
+    background-color: #fca311;
+    border: none;
+    font-size:1em;
+    padding: 10px 0 10px 0;
+    border-radius: 5px;
+}
+.read-button-cont button:hover{
+    background-color: #ed9607;
+}
+.read-unread{
+    width: 50%;
+    text-align: center;
+}
+.remove-button{
+    background-color: #e63946;
+    border: none;
+    font-size:1em;
+    padding: 10px 0 10px 0;
+    border-radius: 5px;
+    width: 100%;
+}
+.remove-button:hover{
+    background-color: #d32e3c;
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.3);
+}
+.modal-content{
+    background-color: #ffffff;
+    margin: 10% auto;
+    border-radius: 15px;
+    height: auto;
+    width: 400px;
+    box-sizing: border-box;
+    padding: 50px 40px;
+    font-size: 1.3em;
+    position: relative;
+}
+.modal-content h2{
+    padding: 10px 0 30px 0;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 700;
+}
+.modal-content form{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.error-message{
+    color: rgb(180, 0, 0);
+    font-size: 0.7em;
+    padding-top: 3px;
+    display: none;
+}
+.active{
+    display: block;
+}
+.input-div{
+    min-height: 95px;
+}
+.modal-content input{
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-top: 10px;
+}
+.modal-content form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+}
+.modal-content form div:last-child{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px;
+}
+.modal-content form div:last-child div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+.modal-content form div:last-child div input{
+    margin: 0 10px 0 0;
+}
+.modal-content button{
+    border:none;
+    font-size: 1.2em;
+    padding: 10px 30px 10px 30px;
+    border-radius: 15px;
+    font-weight: 700;
+    background-color: #fca311;
+    margin-top: 20px;
+}
+.modal-content button:hover{
+    background-color: #ed9607;
+}
+.modal-close{
+    color: #cfcfcf;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    cursor: pointer;
+}
+.modal-close:hover,
+.modal-close:focus{
+    color:#b6b6b6;
+}
+
+.radio-cont div{
+    display: flex;
+    width: 50%;
+}
+.header-button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.user-greeting {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.sign-out-button {
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    .book-wrapper {
+        grid-template-columns: repeat(auto-fit, 300px);
+        padding: 0 20px 20px 20px;
+        justify-content: center;
+    }
+    .book-card {
+        width: 300px;
+    }
+    .header h1 {
+        font-size: 2rem;
+    }
+    .modal-content {
+        width: 320px;
+    }
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+    .header-button-container { 
+        flex-direction: column;
+    }
+    .user-greeting {
+        font-size: 1rem;
+    }
+    .header button{
+        font-size: 1rem;
+        padding: 5px 15px;
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Project from [The Odin Project's curriculum](https://theodinproject.com) to create a library app using HTML, CSS, and Vanilla JS.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ro-bu/library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ro-bu/library/issues"
+  },
+  "homepage": "https://github.com/Ro-bu/library#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1"
+  },
+  "dependencies": {
+    "firebase": "^9.9.0"
+  }
+}
